@@ -1,7 +1,7 @@
 import smtplib
 import os
 
-def send_email(username, password, recepiant_email, message):
+def send_email(username, password, email, message):
     
     # smtpOnj represents SMTP mail server and passing the paramater
     print "\n"
@@ -12,17 +12,17 @@ def send_email(username, password, recepiant_email, message):
     print "stablishing connection..."
     smtpObj.ehlo()
     
-    #stattls method is used to aquire TLS and encrypt your message
-    print "aquaring TLS encryption..."
+    #stattls method is used to acquire TLS and encrypt your message
+    print "acquiring TLS encryption..."
     smtpObj.starttls()
     
-    # loggin in using username and password from user
-    print "loggin in..."
+    # logging in using username and password from user
+    print "logging in..."
     smtpObj.login(username, password)   
 
-    #after aquaring encryption and logging in sendmail() method to send the information 
+    #after acquiring encryption and logging in sendmail() method to send the information 
     print "sending email..."
-    smtpObj.sendmail(username, recepiant_email, message)
+    smtpObj.sendmail(username, email, message)
     
     #calling quit() method to disconnect the connection
     print "closing connection..."
@@ -40,13 +40,13 @@ def main():
     username = raw_input('Senders email: ') 
     password = raw_input('Senders password: ')
 
-    print "\n* Now enter RECEPIANT  information *\n"
+    print "\n* Now enter RECIPIENT  information *\n"
     
-    recepiant_email = raw_input('Recepiant email: ')
+    email = raw_input('Recipient email: ')
     message = raw_input('Enter message you want to send: ')
 
     #call the function and pass user information
-    send_email(username, password, recepiant_email, message)
+    send_email(username, password, email, message)
 
     print "\n Your email has been successfully sent !\n"
 
